@@ -1,0 +1,57 @@
+@import "variables";
+
+@media screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-medium){
+
+
+}
+
+@media screen and (min-width: $breakpoint-medium) and (max-width: $breakpoint-large){
+header {
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.bg-header{
+    background: $light-blue;
+    border-bottom: 1rem solid $blue;
+    border-top: 1rem solid $dark-blue;
+    position: relative;
+    &:before{
+        left: 0;
+    }
+    &:before, &:after{
+        content:"";
+        position: absolute;
+        bottom: -1rem;
+        width: 30%;
+        height: 1rem;
+        background-color: $dark-blue;
+    }
+    h1{
+        font-size: 4rem;
+        width:100%;
+        padding: 0;
+        text-align: right;
+        letter-spacing: 0.1rem;
+    }
+    i{
+        color: $dark-brown;
+        width: 30%;
+        font-size: 7.5rem;
+    }
+    span{
+        color: $dark-brown;
+        //float: right;
+        width: 70%;
+        padding-left: 20px;
+        text-align: right;
+    }
+}
+
+}
+
+@media screen and (min-width: $breakpoint-large){
+
+
+}

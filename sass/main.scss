@@ -1,1 +1,476 @@
-// main SASS file
+@import "mixins";
+@import "queries";
+@import "variables";
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+*:after,
+*:before {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Josefin Sans', ‘Trebuchet MS’, Helvetica, sans-serif;
+    /* default for whole page */
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Cardo, ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+    /* serif for the headings */
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.bg-header {
+    background: $light-blue;
+    border-bottom: 1rem solid $blue;
+    border-top: 1rem solid $dark-blue;
+    position: relative;
+    &:before {
+        left: 0;
+    }
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        width: 30%;
+        height: 1rem;
+        background-color: $dark-blue;
+    }
+    h1 {
+        font-size: 4rem;
+        width: 90%;
+        padding: 0;
+        text-align: right;
+        letter-spacing: 0.1rem;
+    }
+    i {
+        color: $light-brown;
+        width: 30%;
+        font-size: 7.5rem;
+        vertical-align: baseline;
+        float: none;
+        display: inline;
+    }
+    span {
+        color: $dark-brown;
+        width: 70%;
+        padding-left: 20px;
+        text-align: right;
+    }
+}
+
+nav {
+    width: 100%;
+    clear: both;
+    padding: 2rem 0;
+}
+
+a {
+    text-align: center;
+    max-width: 400px;
+    display: block;
+    background-color: white;
+    text-decoration: none;
+    border-top: 1px solid $light-grey;
+    @include def(1rem 2rem, black, 1.5rem, 0, none, 0.25rem);
+    &:hover {
+        font-weight: 700;
+        color: $dark-brown;
+    }
+}
+
+.bg-focal {
+    background-color: $light-brown;
+    .focal {
+        width: 400px;
+        margin: 0 auto;
+    }
+    h2 {
+        @include def(2rem 2rem 1rem 2rem, $dark-brown, 2rem);
+        line-height: 1.2;
+    }
+    .author {
+        @include def(0.2rem 2rem 2rem, $dark-brown, 1rem);
+    }
+}
+
+.content1 {
+    padding: 2rem 0;
+    h3 {
+        @include def(0.2rem 2rem 2rem, black, 2rem);
+    }
+    i {
+        padding-right: 30px;
+        float: none;
+        display: inline;
+        vertical-align: baseline;
+    }
+    p {
+        @include def(0.5rem 2rem 2rem, black, 1.4rem);
+    }
+}
+
+.content2 {
+    background-color: $light-blue;
+    padding: 2rem 0;
+    h4 {
+        @include def(5px 25px 0px, $dark-blue, 2rem);
+    }
+    p,
+    li {
+        @include def(5px 25px 10px, $dark-blue, 1.4rem);
+    }
+}
+
+.bg-footer {
+    padding-top: 1rem;
+    h4 {
+        @include def(0.5rem 2rem, $dark-brown, 1.4rem);
+    }
+    h4[lang=en],
+    h4[lang=ru],
+    h4[lang=ar] {
+        display: none;
+    }
+    .col-2 {
+        width: 50%;
+        &:last-child {
+            border-left: 1px solid black;
+        }
+        @include def(0 0 2rem, black, 1.4rem, 0 0 2rem, left);
+    }
+    p {
+        @include def(5px 30px, black, 1rem);
+    }
+}
+
+// MEDIA QUERY MED
+@media screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
+    header {
+        width: 700px;
+        margin: 0 auto;
+        min-height: 8rem;
+    }
+    .bg-header {
+        background: $light-blue;
+        border-bottom: 1rem solid $blue;
+        border-top: 1rem solid $dark-blue;
+        position: relative;
+        &:before {
+            left: 0;
+        }
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -1rem;
+            width: 30%;
+            height: 1rem;
+            background-color: $dark-blue;
+        }
+        h1 {
+            width: 100%;
+            letter-spacing: 0.1rem;
+            padding: 0 2rem;
+            text-align: left;
+        }
+        i {
+            color: $dark-brown;
+            float: none;
+            width: auto;
+            font-size: 4rem;
+            display: inline;
+            vertical-align: baseline;
+        }
+        span {
+            width: auto;
+            float: none;
+            letter-spacing: 0.25rem;
+            font-size: 4rem;
+            text-align: left;
+        }
+        li {
+            width: 20%;
+            float: left;
+        }
+    }
+    nav {
+        position: static;
+        clear: both;
+        width: 100%;
+        padding: 0;
+    }
+    a {
+        @include def(1rem, black, 1rem, 0, none, 0.25rem);
+        text-align: center;
+        line-height: 2rem;
+        min-height: 6rem;
+        border-left: 1px solid $light-grey;
+        &:last-child {
+            border-right: 1px solid $light-grey;
+        }
+    }
+    .content1,
+    .content2,
+    footer {
+        width: 700px;
+        margin: 0 auto;
+    }
+    .bg-focal {
+        .focal {
+            width: 700px;
+            margin: 0 auto;
+        }
+        h2 {
+            @include def(2rem 2rem 1rem 2rem, $dark-brown, 2rem, 0, none, 1.2);
+        }
+        .author {
+            @include def(0.2rem 2rem 2rem, $dark-brown, 1rem);
+        }
+    }
+    .content1 {
+        padding: 2rem 0;
+        h3 {
+            @include def(0.2rem 2rem 2rem, black, 2rem);
+        }
+        i {
+            padding-right: 30px;
+            float: none;
+            display: inline;
+            vertical-align: baseline;
+        }
+        p {
+            @include def(0.5rem 2rem 2rem, black, 1.4rem);
+        }
+    }
+    .bg-content2 {
+        background-color: $light-blue;
+    }
+    .content2 {
+        padding-bottom: 2rem;
+        .col-4 {
+            float: left;
+            width: 50%;
+        }
+        h4 {
+            //@include def(5px 25px 0px, $dark-blue, 2rem);
+            @include col(1rem 2rem 0, 1.4rem);
+        }
+        p {
+            //@include def(5px 25px 10px, $dark-blue, 1.4rem);
+            @include col(0.5rem 2rem 1rem, 1.4rem);
+        }
+        li {
+            @include col(0.5rem 2rem, 1.4rem);
+        }
+    }
+    .bg-footer {
+        padding-top: 1rem;
+        h4 {
+            @include def(0.5rem 2rem, $dark-brown, 1.4rem);
+        }
+        h4[lang=en],
+        h4[lang=ru],
+        h4[lang=de] {
+            display: none;
+        }
+        h4[lang=ar] {
+            display: block;
+        }
+        .col-2 {
+            &:last-child {
+                border-left: 1px solid black;
+                text-align: right;
+                direction: rtl;
+            }
+            &:first-child {
+                p {
+                    color: $blue;
+                }
+            }
+        }
+    }
+}
+
+// LARGE SIZE QUERY
+@media screen and (min-width: $breakpoint-large) {
+    header {
+        width: 1400px;
+        margin: 0 auto;
+    }
+    .bg-header {
+        background: $light-blue;
+        border-bottom: 1rem solid $blue;
+        border-top: 1rem solid $dark-blue;
+        position: relative;
+        &:before {
+            left: 0;
+        }
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -1rem;
+            width: 30%;
+            height: 1rem;
+            background-color: $dark-blue;
+        }
+        h1 {
+            width: 100%;
+            letter-spacing: 0.1rem;
+            padding: 0 2rem;
+            text-align: left;
+        }
+        i {
+            color: $dark-brown;
+            float: none;
+            width: auto;
+            font-size: 4rem;
+            display: inline;
+            vertical-align: baseline;
+        }
+        span {
+            float: none;
+            letter-spacing: 0.25rem;
+            font-size: 4rem;
+            text-align: left;
+        }
+        li {
+            width: 20%;
+            float: left;
+            background-color: white;
+        }
+    }
+    nav {
+        position: static;
+        clear: both;
+        width: 100%;
+        padding: 0;
+    }
+    a {
+        @include def(0 1rem, black, 1rem, 1rem 0, none, 0.25rem);
+        text-align: center;
+        line-height: 2rem;
+        min-height: 2rem;
+        border-top: 0;
+        border-left: 1px solid $light-grey;
+        &:first-child {
+            //border-left: none;
+        }
+    }
+    .content1,
+    .content2,
+    footer {
+        width: 1400px;
+        margin: 0 auto;
+    }
+    .bg-focal {
+        .focal {
+            width: 900px;
+            margin: 0 auto;
+        }
+        h2 {
+            @include def(2rem 2rem 1rem 2rem, $dark-brown, 4rem, 0 auto);
+            width: 600px;
+            line-height: 1.2;
+        }
+        .author {
+            @include def(0.2rem 2rem 2rem, $dark-brown, 1rem, 0 auto);
+            width: 600px;
+        }
+    }
+    .content1 {
+        padding: 2rem 0;
+        .col-3 {
+            width: 33.3%;
+            float: left;
+        }
+        h3 {
+            @include def(0.2rem 2rem 2rem, black, 2.8rem);
+            font-weight: 100;
+        }
+        i {
+            padding-right: 1rem;
+            float: none;
+            display: inline;
+            vertical-align: baseline;
+            font-size: 2.8rem;
+        }
+        p {
+            @include def(0.5rem 2rem 2rem, black, 1.4rem);
+        }
+    }
+    .bg-content2 {
+        background-color: $light-blue;
+    }
+    .content2 {
+        padding-bottom: 2rem;
+        .col-4 {
+            float: left;
+            width: 25%;
+        }
+        h4 {
+            @include col(1rem 2rem 0, 1.4rem);
+        }
+        p {
+            @include col(0.5rem 2rem 1rem, 1.4rem);
+        }
+        li {
+            @include col(0.5rem 2rem, 2rem);
+        }
+    }
+    .bg-footer {
+        padding-top: 1rem;
+        h4 {
+            @include def(0.5rem 2rem, $dark-brown, 1.4rem);
+        }
+        h4[lang=ru],
+        h4[lang=ar],
+        h4[lang=de] {
+            display: none;
+        }
+        h4[lang=en] {
+            display: block;
+        }
+        p {
+            @include def(0.5rem 2rem, black, 1.4rem);
+            letter-spacing: 0.2rem;
+            &:last-child {
+                color: $light-grey;
+            }
+        }
+        .col-2 {
+            &:first-child {
+                p {
+                    color: $blue;
+                }
+            }
+        }
+    }
+}

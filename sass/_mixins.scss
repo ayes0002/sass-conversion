@@ -1,0 +1,13 @@
+@mixin def($padding, $color:black, $fontsize:1rem, $margin:0, $float:none, $letters:0){
+    padding: $padding;
+    margin: $margin;
+    float: $float;
+    color:$color;
+    font-size: $fontsize;
+    letter-spacing: $letters;
+}
+
+@mixin col($padding,$fontsize:1rem){
+    padding: $padding;
+    font-size: $fontsize;
+}
